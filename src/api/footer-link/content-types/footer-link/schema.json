@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footer_links",
+  "info": {
+    "singularName": "footer-link",
+    "pluralName": "footer-links",
+    "displayName": "Footer Links",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "URL": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Column": {
+      "type": "enumeration",
+      "enum": [
+        "column-left",
+        "column-right"
+      ]
+    }
+  }
+}

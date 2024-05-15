@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sporting_calendars",
+  "info": {
+    "singularName": "sporting-calendar",
+    "pluralName": "sporting-calendars",
+    "displayName": "Sporting Calendar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sport": {
+      "type": "enumeration",
+      "enum": [
+        "boxing",
+        "football",
+        "tennis",
+        "rugby union",
+        "rugby league",
+        "cricket",
+        "formula 1"
+      ]
+    },
+    "Event": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "location": {
+      "type": "customField",
+      "customField": "plugin::location-field.location"
+    }
+  }
+}
