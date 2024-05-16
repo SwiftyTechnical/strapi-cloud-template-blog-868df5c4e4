@@ -23,24 +23,13 @@
         "audios"
       ]
     },
-    "imageLinks": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "Copyright": {
+    "copyright": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
-    "footer_links": {
+    "columnRightLinks": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::footer-link.footer-link"
@@ -50,6 +39,16 @@
     },
     "columnRightTitle": {
       "type": "string"
+    },
+    "columnLeftLinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::footer-link.footer-link"
+    },
+    "imageLinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::footer-link.footer-link"
     }
   }
 }

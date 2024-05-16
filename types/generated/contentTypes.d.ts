@@ -996,16 +996,25 @@ export interface ApiFooterFooter extends Schema.SingleType {
   };
   attributes: {
     logo: Attribute.Media;
-    imageLinks: Attribute.Media;
-    Copyright: Attribute.String;
-    Description: Attribute.Text;
-    footer_links: Attribute.Relation<
+    copyright: Attribute.String;
+    description: Attribute.Text;
+    columnRightLinks: Attribute.Relation<
       'api::footer.footer',
       'oneToMany',
       'api::footer-link.footer-link'
     >;
     columnLeftTitle: Attribute.String;
     columnRightTitle: Attribute.String;
+    columnLeftLinks: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::footer-link.footer-link'
+    >;
+    imageLinks: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::footer-link.footer-link'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1038,7 +1047,7 @@ export interface ApiFooterLinkFooterLink extends Schema.CollectionType {
   attributes: {
     URL: Attribute.String;
     Title: Attribute.String;
-    Column: Attribute.Enumeration<['column-left', 'column-right']>;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

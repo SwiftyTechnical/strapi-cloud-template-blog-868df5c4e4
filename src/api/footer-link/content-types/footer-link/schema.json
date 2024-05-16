@@ -18,12 +18,15 @@
     "Title": {
       "type": "string"
     },
-    "Column": {
-      "type": "enumeration",
-      "enum": [
-        "column-left",
-        "column-right"
-      ]
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
