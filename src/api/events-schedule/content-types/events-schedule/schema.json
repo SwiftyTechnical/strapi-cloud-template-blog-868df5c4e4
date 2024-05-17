@@ -20,7 +20,7 @@
       "repeatable": true,
       "component": "shared.seo"
     },
-    "sporting_calendars": {
+    "sportingCalendar": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sporting-calendar.sporting-calendar"

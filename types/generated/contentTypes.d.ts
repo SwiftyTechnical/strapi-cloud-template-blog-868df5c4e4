@@ -946,6 +946,37 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCookiePolicyCookiePolicy extends Schema.SingleType {
+  collectionName: 'cookie_policies';
+  info: {
+    singularName: 'cookie-policy';
+    pluralName: 'cookie-policies';
+    displayName: 'Cookie Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    policy: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cookie-policy.cookie-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cookie-policy.cookie-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventsScheduleEventsSchedule extends Schema.SingleType {
   collectionName: 'events_schedules';
   info: {
@@ -960,7 +991,7 @@ export interface ApiEventsScheduleEventsSchedule extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     seo: Attribute.Component<'shared.seo', true>;
-    sporting_calendars: Attribute.Relation<
+    sportingCalendar: Attribute.Relation<
       'api::events-schedule.events-schedule',
       'oneToMany',
       'api::sporting-calendar.sporting-calendar'
@@ -995,7 +1026,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    logo: Attribute.Media;
     copyright: Attribute.String;
     description: Attribute.Text;
     columnRightLinks: Attribute.Relation<
@@ -1082,6 +1112,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     favicon: Attribute.Media;
     siteDescription: Attribute.Text & Attribute.Required;
     defaultSeo: Attribute.Component<'shared.seo'>;
+    logo: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1092,6 +1123,95 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::global.global',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    sectionOneTitle: Attribute.String;
+    sectionTwoTitle: Attribute.String;
+    SEO: Attribute.Component<'shared.seo', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuLinkMenuLink extends Schema.CollectionType {
+  collectionName: 'menu_links';
+  info: {
+    singularName: 'menu-link';
+    pluralName: 'menu-links';
+    displayName: 'Menu Links';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    URL: Attribute.String;
+    Title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-link.menu-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-link.menu-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.SingleType {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'Privacy Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    policy: Attribute.RichText;
+    version: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
       'oneToOne',
       'admin::user'
     > &
@@ -1146,6 +1266,70 @@ export interface ApiSportingCalendarSportingCalendar
   };
 }
 
+export interface ApiSubscribeSubscribe extends Schema.SingleType {
+  collectionName: 'subscribes';
+  info: {
+    singularName: 'subscribe';
+    pluralName: 'subscribes';
+    displayName: 'Subscribe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTermsOfUseTermsOfUse extends Schema.SingleType {
+  collectionName: 'terms_of_uses';
+  info: {
+    singularName: 'terms-of-use';
+    pluralName: 'terms-of-uses';
+    displayName: 'Terms of Use';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    policy: Attribute.RichText;
+    version: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::terms-of-use.terms-of-use',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::terms-of-use.terms-of-use',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1168,11 +1352,17 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
       'api::events-schedule.events-schedule': ApiEventsScheduleEventsSchedule;
       'api::footer.footer': ApiFooterFooter;
       'api::footer-link.footer-link': ApiFooterLinkFooterLink;
       'api::global.global': ApiGlobalGlobal;
+      'api::home.home': ApiHomeHome;
+      'api::menu-link.menu-link': ApiMenuLinkMenuLink;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::sporting-calendar.sporting-calendar': ApiSportingCalendarSportingCalendar;
+      'api::subscribe.subscribe': ApiSubscribeSubscribe;
+      'api::terms-of-use.terms-of-use': ApiTermsOfUseTermsOfUse;
     }
   }
 }
