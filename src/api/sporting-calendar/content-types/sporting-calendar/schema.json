@@ -12,19 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Sport": {
+    "sport": {
       "type": "enumeration",
       "enum": [
-        "boxing",
-        "football",
-        "tennis",
-        "rugby union",
-        "rugby league",
-        "cricket",
-        "formula 1"
+        "Boxing",
+        "Football",
+        "Tennis",
+        "Rugby Union",
+        "Rugby League",
+        "Cricket",
+        "Formula 1"
       ]
     },
-    "Event": {
+    "event": {
       "type": "string"
     },
     "startDate": {

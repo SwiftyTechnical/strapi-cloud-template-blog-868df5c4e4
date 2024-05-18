@@ -1232,18 +1232,18 @@ export interface ApiSportingCalendarSportingCalendar
     draftAndPublish: true;
   };
   attributes: {
-    Sport: Attribute.Enumeration<
+    sport: Attribute.Enumeration<
       [
-        'boxing',
-        'football',
-        'tennis',
-        'rugby union',
-        'rugby league',
-        'cricket',
-        'formula 1'
+        'Boxing',
+        'Football',
+        'Tennis',
+        'Rugby Union',
+        'Rugby League',
+        'Cricket',
+        'Formula 1'
       ]
     >;
-    Event: Attribute.String;
+    event: Attribute.String;
     startDate: Attribute.Date;
     endDate: Attribute.Date;
     location: Attribute.JSON &
